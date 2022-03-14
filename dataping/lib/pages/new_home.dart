@@ -1,6 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dataping/pages/vi_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dataping/pages/home_page.dart';
+import 'package:dataping/pages/jio_page.dart';
+import 'package:dataping/pages/airtel_page.dart';
+import 'package:dataping/pages/bsnl_page.dart';
+import 'package:dataping/pages/jio_page.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -43,7 +48,7 @@ class _HomeState extends State<Home> {
               decoration: BoxDecoration(
                 color: const Color.fromARGB(185, 253, 49, 100),
               ),
-              child: Text('Drawer Header'),
+              child: Text('User Header'),
             ),
             ListTile(
               title: const Text('Home'),
@@ -66,7 +71,6 @@ class _HomeState extends State<Home> {
               },
               leading: Icon(Icons.account_circle),
             ),
-            
             Divider(),
             ListTile(
               title: const Text('Rewards'),
@@ -98,8 +102,9 @@ class _HomeState extends State<Home> {
                 // Then close the drawer
                 Navigator.pop(context);
               },
-              leading: Icon(Icons.settings,
-            ),
+              leading: Icon(
+                Icons.settings,
+              ),
             ),
             Divider(),
             ListTile(
@@ -110,20 +115,17 @@ class _HomeState extends State<Home> {
                 // Then close the drawer
                 Navigator.pop(context);
               },
-              leading: Icon(Icons.logout_outlined
-            ),
+              leading: Icon(Icons.logout_outlined),
             ),
             Divider(),
-            SizedBox(height: 170.0,),
-       ListTile(
+            SizedBox(
+              height: 170.0,
+            ),
+            ListTile(
               title: const Text('Copyright © 2022'),
             ),
-            
           ],
         ),
-        
-      
-
       ),
       body: Stack(
         children: <Widget>[
@@ -191,52 +193,54 @@ class _HomeState extends State<Home> {
             padding: EdgeInsets.only(top: 240, left: 10, right: 10, bottom: 40),
             alignment: Alignment.center,
             child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height :20.0,width: 50.0),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SecondRoute()),
-                      );
-                    },
-                   
-                padding :EdgeInsets.all(10.0),
-                child: Column( 
-                  children: <Widget>[
-                   Image.asset("assets/JIO.png", width: 45,
-                                        height: 45,),
-                   
-                  ] ,
-                ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 20.0, width: 50.0),
+                FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SecondRoute()),
+                    );
+                  },
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/JIO.png",
+                        width: 45,
+                        height: 45,
+                      ),
+                    ],
                   ),
-                  SizedBox(height :20.0,width: 50.0),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ThirdRoute()),
-                      );
-                    },
-                   
-                padding :EdgeInsets.all(10.0),
-                child: Column( 
-                  children: <Widget>[
-                   Image.asset("assets/BSNL.jpg", width: 45,
-                                        height: 45,),
-                   
-                  ] ,
                 ),
+                SizedBox(height: 20.0, width: 50.0),
+                FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ThirdRoute()),
+                    );
+                  },
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/BSNL.jpg",
+                        width: 45,
+                        height: 45,
+                      ),
+                    ],
                   ),
-                  SizedBox(height :20.0,width: 50.0),  
-                  ] ,
                 ),
-                  ),
-                
-                  /*ElevatedButton(
+                SizedBox(height: 20.0, width: 50.0),
+              ],
+            ),
+          ),
+
+          /*ElevatedButton(
                     child: Text('Vi'),
                     onPressed: () {
                       Navigator.push(
@@ -252,54 +256,55 @@ class _HomeState extends State<Home> {
                 fontSize: 19,
                 fontWeight: FontWeight.bold)),
                   ),*/
-               
-            Container(
+
+          Container(
             padding: EdgeInsets.only(top: 340, left: 10, right: 10, bottom: 40),
             alignment: Alignment.center,
             child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height :20.0,width: 50.0),
-                  
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FourthRoute()),
-                      );
-                    },
-                   
-                padding :EdgeInsets.all(10.0),
-                child: Column( 
-                  children: <Widget>[
-                   Image.asset("assets/AIRTEL.png", width: 45,
-                                        height: 45,),
-                   
-                  ] ,
-                ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 20.0, width: 50.0),
+                FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FourthRoute()),
+                    );
+                  },
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/AIRTEL.png",
+                        width: 45,
+                        height: 45,
+                      ),
+                    ],
                   ),
-                  SizedBox(height :20.0,width: 50.0),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FifthRoute()),
-                      );
-                    },
-                   
-                padding :EdgeInsets.all(10.0),
-                child: Column( 
-                  children: <Widget>[
-                   Image.asset("assets/VI.png", width: 45,
-                                        height: 45,),
-                   
-                  ] ,
                 ),
+                SizedBox(height: 20.0, width: 50.0),
+                FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FifthRoute()),
+                    );
+                  },
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/VI.png",
+                        width: 45,
+                        height: 45,
+                      ),
+                    ],
                   ),
-                  SizedBox(height :20.0,width: 50.0),
-                  /*ElevatedButton(
+                ),
+                SizedBox(height: 20.0, width: 50.0),
+                /*ElevatedButton(
                     child: Text('Vi'),
                     onPressed: () {
                       Navigator.push(
@@ -315,81 +320,12 @@ class _HomeState extends State<Home> {
                 fontSize: 19,
                 fontWeight: FontWeight.bold)),
                   ),*/
-                ],
-              ),
+              ],
             ),
-            Divider()
-          
+          ),
+          Divider()
         ],
       ),
     );
-  }
-}
-
-class SecondRoute extends StatefulWidget {
-  const SecondRoute({Key? key}) : super(key: key);
-
-  @override
-  State<SecondRoute> createState() => _SecondRouteState();
-}
-
-class _SecondRouteState extends State<SecondRoute> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-      title: Text("Jio"),
-    ));
-  }
-}
-
-class ThirdRoute extends StatefulWidget {
-  const ThirdRoute({Key? key}) : super(key: key);
-
-  @override
-  State<ThirdRoute> createState() => _ThirdRouteState();
-}
-
-class _ThirdRouteState extends State<ThirdRoute> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-      title: Text("Bsnl"),
-    ));
-  }
-}
-
-class FourthRoute extends StatefulWidget {
-  const FourthRoute({Key? key}) : super(key: key);
-
-  @override
-  State<FourthRoute> createState() => _FourthRouteState();
-}
-
-class _FourthRouteState extends State<FourthRoute> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-      title: Text("Airtel"),
-    ));
-  }
-}
-
-class FifthRoute extends StatefulWidget {
-  const FifthRoute({Key? key}) : super(key: key);
-
-  @override
-  State<FifthRoute> createState() => _FifthRouteState();
-}
-
-class _FifthRouteState extends State<FifthRoute> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-      title: Text("Vi"),
-    ));
   }
 }
