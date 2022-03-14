@@ -11,9 +11,10 @@ class _FifthRouteState extends State<FifthRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      title: Text("Vi"),
-      backgroundColor: const Color.fromARGB(185, 253, 49, 100),
-    ));
+      appBar: AppBar(
+        title: Text("Vi"),
+        backgroundColor: const Color.fromARGB(185, 253, 49, 100),
+      ),
+    );
   }
 }
