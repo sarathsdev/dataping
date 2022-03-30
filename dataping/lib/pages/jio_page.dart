@@ -8,45 +8,127 @@ class SecondRoute extends StatefulWidget {
 }
 
 class _SecondRouteState extends State<SecondRoute> {
+  
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  TextEditingController emailEditingController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Jio"),
-          backgroundColor: const Color.fromARGB(185, 253, 49, 100),
-        ),
-        body: Container(
-          color: Colors.white,
-          padding: EdgeInsets.all(20.0),
-          child: Table(
-            border: TableBorder.all(color: Colors.black),
-            children: [
-              TableRow(children: [
-                Text('Cell 1'),
-                Text('Cell 2'),
-                Text('Cell 3'),
-                Text('Cell 4'),
-              ]),
-              TableRow(children: [
-                Text('Cell 1'),
-                Text('Cell 2'),
-                Text('Cell 3'),
-                Text('Cell 4'),
-              ]),
-              TableRow(children: [
-                Text('Cell 1'),
-                Text('Cell 2'),
-                Text('Cell 3'),
-                Text('Cell 4'),
-              ]),
-              TableRow(children: [
-                Text('Cell 1'),
-                Text('Cell 2'),
-                Text('Cell 3'),
-                Text('Cell 4'),
-              ])
-            ],
+      appBar: AppBar(
+        title: Text("Jio"),
+        backgroundColor: const Color.fromARGB(185, 253, 49, 100),
+      ),
+     body:Column(
+       children: [
+         Form(
+      key: _formKey,
+      child: Center(
+        child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          TextFormField(
+            controller: emailEditingController,
+            decoration: const InputDecoration(
+              hintText: 'Input the Data Pack Price',
+            ),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
           ),
-        ));
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: ElevatedButton(
+              onPressed: () {
+                // Validate will return true if the form is valid, or false if
+                // the form is invalid.
+                if (_formKey.currentState!.validate()) {
+                  // Process data.
+                }
+              },
+              child: const Text('Submit'),
+            ),
+          ),
+        ],
+      ),
+     ),
+         ),
+         Form(
+      key: _formKey,
+      child: Center(
+        child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          TextFormField(
+            controller: emailEditingController,
+            decoration: const InputDecoration(
+              hintText: 'Input the Data Pack Validity',
+            ),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: ElevatedButton(
+              onPressed: () {
+                // Validate will return true if the form is valid, or false if
+                // the form is invalid.
+                if (_formKey.currentState!.validate()) {
+                  // Process data.
+                }
+              },
+              child: const Text('Submit'),
+            ),
+          ),
+        ],
+      ),
+     ),
+         ),
+         Form(
+      key: _formKey,
+      child: Center(
+        child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          TextFormField(
+            controller: emailEditingController,
+            decoration: const InputDecoration(
+              hintText: 'Input the Data Pack Size',
+            ),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: ElevatedButton(
+              onPressed: () {
+                // Validate will return true if the form is valid, or false if
+                // the form is invalid.
+                if (_formKey.currentState!.validate()) {
+                  // Process data.
+                }
+              },
+              child: const Text('Submit'),
+            ),
+          ),
+        ],
+      ),
+     ),
+         ),
+       ],
+     ),  
+    );
   }
 }
+
