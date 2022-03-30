@@ -240,23 +240,6 @@ class _HomeState extends State<Home> {
             ),
           ),
 
-          /*ElevatedButton(
-                    child: Text('Vi'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FifthRoute()),
-                      );
-                    },
-                     style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(185, 253, 49, 100),
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                textStyle: TextStyle(
-                fontSize: 19,
-                fontWeight: FontWeight.bold)),
-                  ),*/
-
           Container(
             padding: EdgeInsets.only(top: 340, left: 10, right: 10, bottom: 40),
             alignment: Alignment.center,
@@ -304,26 +287,10 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(height: 20.0, width: 50.0),
-                /*ElevatedButton(
-                    child: Text('Vi'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FifthRoute()),
-                      );
-                    },
-                     style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(185, 253, 49, 100),
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                textStyle: TextStyle(
-                fontSize: 19,
-                fontWeight: FontWeight.bold)),
-                  ),*/
+                
               ],
             ),
           ),
-          Divider()
         ],
       ),
     );
