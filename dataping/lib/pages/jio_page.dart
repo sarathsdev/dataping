@@ -10,7 +10,9 @@ class SecondRoute extends StatefulWidget {
 class _SecondRouteState extends State<SecondRoute> {
   
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController emailEditingController = TextEditingController();
+  TextEditingController priceEditingController = TextEditingController();
+  TextEditingController validityEditingController = TextEditingController();
+  TextEditingController sizeEditingController = TextEditingController();
   
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class _SecondRouteState extends State<SecondRoute> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           TextFormField(
-            controller: emailEditingController,
+            controller: priceEditingController,
             decoration: const InputDecoration(
               hintText: 'Input the Data Pack Price',
             ),
@@ -39,31 +41,8 @@ class _SecondRouteState extends State<SecondRoute> {
               return null;
             },
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // Validate will return true if the form is valid, or false if
-                // the form is invalid.
-                if (_formKey.currentState!.validate()) {
-                  // Process data.
-                }
-              },
-              child: const Text('Submit'),
-            ),
-          ),
-        ],
-      ),
-     ),
-         ),
-         Form(
-      key: _formKey,
-      child: Center(
-        child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
           TextFormField(
-            controller: emailEditingController,
+            controller: validityEditingController,
             decoration: const InputDecoration(
               hintText: 'Input the Data Pack Validity',
             ),
@@ -74,31 +53,8 @@ class _SecondRouteState extends State<SecondRoute> {
               return null;
             },
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // Validate will return true if the form is valid, or false if
-                // the form is invalid.
-                if (_formKey.currentState!.validate()) {
-                  // Process data.
-                }
-              },
-              child: const Text('Submit'),
-            ),
-          ),
-        ],
-      ),
-     ),
-         ),
-         Form(
-      key: _formKey,
-      child: Center(
-        child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
           TextFormField(
-            controller: emailEditingController,
+            controller: sizeEditingController,
             decoration: const InputDecoration(
               hintText: 'Input the Data Pack Size',
             ),
@@ -126,6 +82,7 @@ class _SecondRouteState extends State<SecondRoute> {
       ),
      ),
          ),
+         
        ],
      ),  
     );
