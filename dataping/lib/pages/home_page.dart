@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:dataping/pages/new_home.dart';
+import 'sign_in_screen.dart';
 import 'package:lottie/lottie.dart';
 class HomePage extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
     //set time to load the new page
     Future.delayed(Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Home()));
+          context, MaterialPageRoute(builder: (context) => SignInScreen()));
     });
     super.initState();
   }

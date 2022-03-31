@@ -7,13 +7,49 @@ import 'package:dataping/pages/airtel_page.dart';
 import 'package:dataping/pages/bsnl_page.dart';
 import 'package:dataping/pages/jio_page.dart';
 
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dataping/res/custom_colors.dart';
+import 'package:dataping/pages/sign_in_screen.dart';
+import 'package:dataping/utils/authentication.dart';
+
 class Home extends StatefulWidget {
+  const Home({Key? key, required User user})
+      : _user = user,
+        super(key: key);
+
+  final User _user;
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  late User _user;
+  bool _isSigningOut = false;
+  Route _routeToSignInScreen() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => SignInScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(-1.0, 0.0);
+        var end = Offset.zero;
+        var curve = Curves.ease;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+    );
+  }
   @override
+   void initState() {
+    _user = widget._user;
+
+    super.initState();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -44,11 +80,32 @@ class _HomeState extends State<Home> {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+            UserAccountsDrawerHeader(
               decoration: BoxDecoration(
-                color: const Color.fromARGB(185, 253, 49, 100),
+                color: Color.fromARGB(185, 253, 49, 100),
               ),
-              child: Text('User Header'),
+              accountName: Text(
+                _user.displayName!,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                ),
+              ),
+              accountEmail: Text(
+                '( ${_user.email!} )',
+                style: TextStyle(
+                  color : Colors.white,
+                  fontSize: 10,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor:Colors.white,
+                child: Icon(
+                  Icons.person,
+                  size: 50,
+                ),
+              ),
             ),
             ListTile(
               title: const Text('Home'),
@@ -107,15 +164,28 @@ class _HomeState extends State<Home> {
               ),
             ),
             Divider(),
+            
             ListTile(
               title: const Text('Logout'),
-              onTap: () {
+              /*onTap: () {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
                 Navigator.pop(context);
               },
-              leading: Icon(Icons.logout_outlined),
+              leading: Icon(Icons.logout_outlined),*/
+              
+              onTap: () async {
+                        setState(() {
+                          _isSigningOut = true;
+                        });
+                        await Authentication.signOut(context: context);
+                        setState(() {
+                          _isSigningOut = false;
+                        });
+                        Navigator.of(context)
+                            .pushReplacement(_routeToSignInScreen());
+                      },
             ),
             Divider(),
             SizedBox(
@@ -287,7 +357,33 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(height: 20.0, width: 50.0),
-                
+
+
+                /* Row(),
+              _user.photoURL != null
+                  ? ClipOval(
+                      child: Material(
+                        color: CustomColors.firebaseGrey.withOpacity(0.3),
+                        child: Image.network(
+                          _user.photoURL!,
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                    )
+                  : ClipOval(
+                      child: Material(
+                        color: CustomColors.firebaseGrey.withOpacity(0.3),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Icon(
+                            Icons.person,
+                            size: 60,
+                            color: CustomColors.firebaseGrey,
+                          ),
+                        ),
+                      ),
+                    ),*/
+              SizedBox(height: 16.0),
               ],
             ),
           ),

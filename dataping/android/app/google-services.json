@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "81024033606",
+    "project_id": "dataping-b3f5c",
+    "storage_bucket": "dataping-b3f5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81024033606:android:68c55f4a0bf2d0a2573b47",
+        "android_client_info": {
+          "package_name": "com.example.dataping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81024033606-nutd7m30m1gemt8ifbf2hledgsp5tn5g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dataping",
+            "certificate_hash": "1974b4eb2a9fec221ee46f2de80fe659e67e3f62"
+          }
+        },
+        {
+          "client_id": "81024033606-1h4m9ks6vh53g849pueejt749jfnhar1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1w_li4Q12WPvO4FVQyVueSwgP0iES-rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81024033606-1h4m9ks6vh53g849pueejt749jfnhar1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
