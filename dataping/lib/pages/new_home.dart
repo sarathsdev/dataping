@@ -11,7 +11,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dataping/res/custom_colors.dart';
 import 'package:dataping/pages/sign_in_screen.dart';
 import 'package:dataping/utils/authentication.dart';
-import 'package:videos_player/videos_player.dart';
+
 
 
 
@@ -379,8 +379,7 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          Container(
-          ),
+         
 
         ],
       ),
