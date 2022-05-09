@@ -21,7 +21,8 @@ class _SecondRouteState extends State<SecondRoute> {
         title: Text("Jio"),
         backgroundColor: const Color.fromARGB(185, 253, 49, 100),
       ),
-     body:Column(
+     body:SingleChildScrollView(
+       child:Column(
        children: [
          Form(
       key: _formKey,
@@ -78,14 +79,16 @@ class _SecondRouteState extends State<SecondRoute> {
               child: const Text('Submit'),
             ),
           ),
+          
+          
         ],
       ),
      ),
          ),
          
        ],
-     ),  
+     ), 
+     ), 
     );
   }
 }
-

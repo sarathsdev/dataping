@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dataping/pages/recharge.dart';
 import 'package:dataping/pages/vi_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dataping/pages/home_page.dart';
@@ -6,12 +7,13 @@ import 'package:dataping/pages/jio_page.dart';
 import 'package:dataping/pages/airtel_page.dart';
 import 'package:dataping/pages/bsnl_page.dart';
 import 'package:dataping/pages/jio_page.dart';
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dataping/res/custom_colors.dart';
 import 'package:dataping/pages/sign_in_screen.dart';
 import 'package:dataping/utils/authentication.dart';
+import 'package:videos_player/videos_player.dart';
+
+
 
 class Home extends StatefulWidget {
   const Home({Key? key, required User user})
@@ -44,12 +46,14 @@ class _HomeState extends State<Home> {
       },
     );
   }
+
   @override
-   void initState() {
+  void initState() {
     _user = widget._user;
 
     super.initState();
   }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -94,13 +98,13 @@ class _HomeState extends State<Home> {
               accountEmail: Text(
                 '( ${_user.email!} )',
                 style: TextStyle(
-                  color : Colors.white,
+                  color: Colors.white,
                   fontSize: 10,
                   letterSpacing: 0.5,
                 ),
               ),
               currentAccountPicture: CircleAvatar(
-                backgroundColor:Colors.white,
+                backgroundColor: Colors.white,
                 child: Icon(
                   Icons.person,
                   size: 50,
@@ -130,6 +134,20 @@ class _HomeState extends State<Home> {
             ),
             Divider(),
             ListTile(
+              title: const Text('Recharge'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Recharge()),
+                );
+              },
+              leading: Icon(Icons.card_giftcard),
+            ),
+            Divider(),
+            ListTile(
               title: const Text('Rewards'),
               onTap: () {
                 // Update the state of the app
@@ -144,9 +162,12 @@ class _HomeState extends State<Home> {
               title: const Text('Preferences'),
               onTap: () {
                 // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.pop(context);
+                /*Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DataUsage()),
+                );
+                */
               },
               leading: Icon(Icons.precision_manufacturing),
             ),
@@ -164,7 +185,6 @@ class _HomeState extends State<Home> {
               ),
             ),
             Divider(),
-            
             ListTile(
               title: const Text('Logout'),
               /*onTap: () {
@@ -174,18 +194,17 @@ class _HomeState extends State<Home> {
                 Navigator.pop(context);
               },
               leading: Icon(Icons.logout_outlined),*/
-              
+
               onTap: () async {
-                        setState(() {
-                          _isSigningOut = true;
-                        });
-                        await Authentication.signOut(context: context);
-                        setState(() {
-                          _isSigningOut = false;
-                        });
-                        Navigator.of(context)
-                            .pushReplacement(_routeToSignInScreen());
-                      },
+                setState(() {
+                  _isSigningOut = true;
+                });
+                await Authentication.signOut(context: context);
+                setState(() {
+                  _isSigningOut = false;
+                });
+                Navigator.of(context).pushReplacement(_routeToSignInScreen());
+              },
             ),
             Divider(),
             SizedBox(
@@ -309,7 +328,6 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-
           Container(
             padding: EdgeInsets.only(top: 340, left: 10, right: 10, bottom: 40),
             alignment: Alignment.center,
@@ -358,37 +376,15 @@ class _HomeState extends State<Home> {
                 ),
                 SizedBox(height: 20.0, width: 50.0),
 
-
-                /* Row(),
-              _user.photoURL != null
-                  ? ClipOval(
-                      child: Material(
-                        color: CustomColors.firebaseGrey.withOpacity(0.3),
-                        child: Image.network(
-                          _user.photoURL!,
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                    )
-                  : ClipOval(
-                      child: Material(
-                        color: CustomColors.firebaseGrey.withOpacity(0.3),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Icon(
-                            Icons.person,
-                            size: 60,
-                            color: CustomColors.firebaseGrey,
-                          ),
-                        ),
-                      ),
-                    ),*/
-              SizedBox(height: 16.0),
               ],
             ),
           ),
+          Container(
+          ),
+
         ],
       ),
     );
   }
 }
+
