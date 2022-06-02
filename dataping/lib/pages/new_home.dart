@@ -105,9 +105,11 @@ class _HomeState extends State<Home> {
               ),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
+                
                 child: Icon(
                   Icons.person,
                   size: 50,
+                  color: Colors.pink,
                 ),
               ),
             ),
@@ -279,9 +281,10 @@ class _HomeState extends State<Home> {
             ],
           ),
           Container(
-            padding: EdgeInsets.only(top: 240, left: 10, right: 10, bottom: 40),
+            padding: EdgeInsets.only(top: 200, left: 10, right: 10, bottom: 509),
             alignment: Alignment.center,
-            child: Row(
+            child: 
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(height: 20.0, width: 50.0),
@@ -329,7 +332,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 340, left: 10, right: 10, bottom: 40),
+            padding: EdgeInsets.only(top: 320, left: 10, right: 10, bottom: 390),
             alignment: Alignment.center,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -379,6 +382,7 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+          
          
 
         ],

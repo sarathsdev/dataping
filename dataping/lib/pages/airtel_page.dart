@@ -10,17 +10,22 @@ class FourthRoute extends StatefulWidget {
 class _FourthRouteState extends State<FourthRoute> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController priceEditingController = TextEditingController();
-  TextEditingController validityEditingController = TextEditingController();
-  TextEditingController sizeEditingController = TextEditingController();
+ 
   
   @override
+  void dispose() {
+  super.dispose();
+  priceEditingController.dispose();
+  
+}
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Airtel"),
         backgroundColor: const Color.fromARGB(185, 253, 49, 100),
       ),
-     body:Column(
+     body:SingleChildScrollView(
+       child:Column(
        children: [
          Form(
       key: _formKey,
@@ -30,6 +35,7 @@ class _FourthRouteState extends State<FourthRoute> {
         children: <Widget>[
           TextFormField(
             controller: priceEditingController,
+            keyboardType: TextInputType.number,
             decoration: const InputDecoration(
               hintText: 'Input the Data Pack Price',
             ),
@@ -40,51 +46,36 @@ class _FourthRouteState extends State<FourthRoute> {
               return null;
             },
           ),
-          TextFormField(
-            controller: validityEditingController,
-            decoration: const InputDecoration(
-              hintText: 'Input the Data Pack Validity',
-            ),
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          TextFormField(
-            controller: priceEditingController,
-            decoration: const InputDecoration(
-              hintText: 'Input the Data Pack Size',
-            ),
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
+          
+          
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.pink),
               onPressed: () {
                 // Validate will return true if the form is valid, or false if
                 // the form is invalid.
                 if (_formKey.currentState!.validate()) {
                   // Process data.
+                  var value1 = priceEditingController.text;
+                  print('Validity:'+ value1);
+                
                 }
               },
               child: const Text('Submit'),
             ),
           ),
+          
+          
         ],
       ),
      ),
          ),
-        
+         
        ],
-     ),  
+     ), 
+     ), 
     );
   }
 }
-
