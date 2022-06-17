@@ -1,19 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dataping/pages/recharge.dart';
-import 'package:dataping/pages/vi_page.dart';
+import 'package:dataping/pages/vi/vi_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dataping/pages/home_page.dart';
-import 'package:dataping/pages/jio_page.dart';
-import 'package:dataping/pages/airtel_page.dart';
-import 'package:dataping/pages/bsnl_page.dart';
-import 'package:dataping/pages/jio_page.dart';
+import 'package:dataping/pages/jio/jio_page.dart';
+import 'package:dataping/pages/airtel/airtel_page.dart';
+import 'package:dataping/pages/bsnl/bsnl_page.dart';
+import 'package:dataping/pages/jio/jio_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dataping/res/custom_colors.dart';
 import 'package:dataping/pages/sign_in_screen.dart';
 import 'package:dataping/utils/authentication.dart';
-
-
-
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key, required User user})
@@ -26,6 +24,39 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  static String videoID1 = 'Ov4peXq3EXs'; //jio
+  static String videoID2 = 'zvNAtCayU5E'; //bsnl
+  static String videoID3 = 'R_vfxXOxATA'; //airtel
+  static String videoID4 = '1FMm9MHZtak'; //vi
+  
+  YoutubePlayerController _controller1 = YoutubePlayerController(
+    initialVideoId: videoID1,
+    flags: YoutubePlayerFlags(
+      autoPlay: true,
+      mute: false,
+    ),
+  );
+  YoutubePlayerController _controller2 = YoutubePlayerController(
+    initialVideoId: videoID2,
+    flags: YoutubePlayerFlags(
+      autoPlay: true,
+      mute: false,
+    ),
+  );
+  YoutubePlayerController _controller3 = YoutubePlayerController(
+    initialVideoId: videoID3,
+    flags: YoutubePlayerFlags(
+      autoPlay: true,
+      mute: false,
+    ),
+  );
+  YoutubePlayerController _controller4 = YoutubePlayerController(
+    initialVideoId: videoID4,
+    flags: YoutubePlayerFlags(
+      autoPlay: true,
+      mute: false,
+    ),
+  );
   late User _user;
   bool _isSigningOut = false;
   Route _routeToSignInScreen() {
@@ -105,7 +136,6 @@ class _HomeState extends State<Home> {
               ),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
-                
                 child: Icon(
                   Icons.person,
                   size: 50,
@@ -281,10 +311,10 @@ class _HomeState extends State<Home> {
             ],
           ),
           Container(
-            padding: EdgeInsets.only(top: 200, left: 10, right: 10, bottom: 509),
+            padding:
+                EdgeInsets.only(top: 230, left: 10, right: 10, bottom: 484),
             alignment: Alignment.center,
-            child: 
-            Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(height: 20.0, width: 50.0),
@@ -332,7 +362,8 @@ class _HomeState extends State<Home> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 320, left: 10, right: 10, bottom: 390),
+            padding:
+                EdgeInsets.only(top: 333, left: 10, right: 10, bottom: 380),
             alignment: Alignment.center,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -378,16 +409,52 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(height: 20.0, width: 50.0),
-
               ],
             ),
           ),
-          
-         
-
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 480.0, 0, 0),
+            child: CarouselSlider(
+              items: [
+                Container(
+                  child: YoutubePlayer(
+                    controller: _controller1,
+                    showVideoProgressIndicator: true,
+                  ),
+                ),
+                Container(
+                  child: YoutubePlayer(
+                    controller: _controller2,
+                    showVideoProgressIndicator: true,
+                  ),
+                ),
+                Container(
+                  child: YoutubePlayer(
+                    controller: _controller3,
+                    showVideoProgressIndicator: true,
+                  ),
+                ),
+                Container(
+                  child: YoutubePlayer(
+                    controller: _controller4,
+                    showVideoProgressIndicator: true,
+                  ),
+                ),
+              ],
+              options: CarouselOptions(
+                height: 180.0,
+                enlargeCenterPage: true,
+                autoPlay: false,
+                aspectRatio: 16 / 9,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                viewportFraction: 0.8,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 }
-

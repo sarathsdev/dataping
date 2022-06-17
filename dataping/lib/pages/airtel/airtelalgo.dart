@@ -15,12 +15,7 @@ class _AlgoState extends State<Algo> {
   var pp;
   String abc = '';
 
-  /*checkmethodvalue(var pp) {
-  if (pp > 100) {
-    print('Yes >100');
-  }
-}
-*/
+  
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +39,11 @@ class _AlgoState extends State<Algo> {
                     abc = 'a';
                   }
                   ;
-                  if (pp > 100 && pp < 500) {
+                  if (pp >= 100 && pp < 500) {
                     abc = 'b';
                   }
                   ;
-                  if (pp > 500 && pp < 1000) {
+                  if (pp >= 500 && pp < 1000) {
                     abc = 'c';
                   }
                   ;
@@ -87,7 +82,7 @@ class _AlgoState extends State<Algo> {
                         child: Text('.'),
                       )),
 
-            //checkmethodvalue(pp),
+            
           ],
         ),
 

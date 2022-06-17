@@ -1,27 +1,23 @@
+import 'package:dataping/pages/bsnl/bsnlalgo.dart';
 import 'package:flutter/material.dart';
 
-class FourthRoute extends StatefulWidget {
-  const FourthRoute({Key? key}) : super(key: key);
+class ThirdRoute extends StatefulWidget {
+  const ThirdRoute({Key? key}) : super(key: key);
 
   @override
-  State<FourthRoute> createState() => _FourthRouteState();
+  State<ThirdRoute> createState() => _ThirdRouteState();
 }
 
-class _FourthRouteState extends State<FourthRoute> {
+class _ThirdRouteState extends State<ThirdRoute> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController priceEditingController = TextEditingController();
- 
+  TextEditingController _price = TextEditingController();
   
   @override
-  void dispose() {
-  super.dispose();
-  priceEditingController.dispose();
-  
-}
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Airtel"),
+        title: Text("BSNL"),
         backgroundColor: const Color.fromARGB(185, 253, 49, 100),
       ),
      body:SingleChildScrollView(
@@ -33,11 +29,13 @@ class _FourthRouteState extends State<FourthRoute> {
         child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          SizedBox(height:30.0),
+          Center(child: Text('Enter  the Data Pack Price:'),),
           TextFormField(
-            controller: priceEditingController,
+            controller: _price,
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
-              hintText: 'Input the Data Pack Price',
+              //hintText: 'Input the Data Pack Price',
             ),
             validator: (String? value) {
               if (value == null || value.isEmpty) {
@@ -58,24 +56,26 @@ class _FourthRouteState extends State<FourthRoute> {
                 // the form is invalid.
                 if (_formKey.currentState!.validate()) {
                   // Process data.
-                  var value1 = priceEditingController.text;
-                  print('Validity:'+ value1);
-                
+                  Navigator.of(context).push(MaterialPageRoute(builder:((context) => Algo(price: _price.text))));           
                 }
               },
               child: const Text('Submit'),
             ),
           ),
+         
           
           
         ],
       ),
      ),
          ),
-         
+        
        ],
      ), 
      ), 
     );
   }
 }
+
+
+

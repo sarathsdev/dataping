@@ -35,6 +35,7 @@ dependencies:
   firebase_auth: ^3.3.11
   google_sign_in: ^5.2.4
   webview_flutter: ^3.0.2
+  youtube_player_flutter: 
   
 
 
