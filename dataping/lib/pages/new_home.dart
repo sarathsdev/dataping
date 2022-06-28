@@ -12,6 +12,7 @@ import 'package:dataping/res/custom_colors.dart';
 import 'package:dataping/pages/sign_in_screen.dart';
 import 'package:dataping/utils/authentication.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:dataping/pages/account.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key, required User user})
@@ -159,8 +160,12 @@ class _HomeState extends State<Home> {
               onTap: () {
                 // Update the state of the app
                 // ...
-                // Then close the drawer
-                Navigator.pop(context);
+                // 
+                if(_user!=null){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>Userdot(user: _user,) ),
+                );}
               },
               leading: Icon(Icons.account_circle),
             ),
@@ -202,19 +207,6 @@ class _HomeState extends State<Home> {
                 */
               },
               leading: Icon(Icons.precision_manufacturing),
-            ),
-            Divider(),
-            ListTile(
-              title: const Text('Settings'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-              leading: Icon(
-                Icons.settings,
-              ),
             ),
             Divider(),
             ListTile(
