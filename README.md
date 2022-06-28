@@ -1,6 +1,5 @@
 # dataping
-Mobile Application Recommendatiion System for Mobile Data Plan
-(B.TECH PROJECT).
+Mobile Application Recommendatiion System for Mobile Data Plan.
 
 # Idea 
 With the vast amount of mobile data plan available, students must put a lot
