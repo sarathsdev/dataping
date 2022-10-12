@@ -6,7 +6,7 @@ With the vast amount of mobile data plan available, students must put a lot
 of effort in finding a mobile data plan that is the best value for money or
 the best for their heavy usage needs. Thus, this project proposes a recommendation
 system to aid students in the selection process of a mobile data
-plan. Further, hybrid filtering will be applied in the development process of
+plan. Further, hybrid filtering is applied in the development process of
 this system to recommend a few suitable mobile data plans.
 
 
